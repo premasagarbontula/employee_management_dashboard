@@ -1,22 +1,18 @@
-// main.js
 import { employeeAPI } from "./employeeAPI.js";
 import { renderTable, populateDropdowns } from "./dom.js";
 import {
-  form,
-  modal,
   getFormData,
   validateForm,
   openAddForm,
   openEditForm,
+  form,
+  modal,
 } from "./form.js";
-import {
-  applyFilters,
-  paginate,
-  currentPage,
-  employeesPerPage,
-} from "./filters.js";
+import { applyFilters, paginate, employeesPerPage } from "./filters.js";
 
-// DOM elements
+let currentPage = 1;
+
+// DOM Elements
 const searchInput = document.getElementById("search");
 const deptFilter = document.getElementById("department-filter");
 const roleFilter = document.getElementById("role-filter");
@@ -27,22 +23,20 @@ const resetFiltersBtn = document.getElementById("reset-filters");
 const addEmployeeBtn = document.getElementById("add-employee-btn");
 const cancelBtn = document.getElementById("cancel-form");
 
-// Render employees based on filters + pagination
 function renderEmployees() {
   const filtered = applyFilters(
     employeeAPI,
-    searchInput.value.toLowerCase(),
+    searchInput.value,
     deptFilter.value,
     roleFilter.value
   );
-
-  const { paginated, totalPages } = paginate(filtered, currentPage);
-
-  renderTable(
-    paginated,
-    (id) => openEditForm(employeeAPI, id),
-    (id) => deleteEmployee(id)
+  const { paginated, totalPages } = paginate(
+    filtered,
+    currentPage,
+    employeesPerPage
   );
+
+  renderTable(paginated, (id) => openEditForm(employeeAPI, id), deleteEmployee);
 
   pageInfo.textContent = `Page ${currentPage} of ${totalPages || 1}`;
   prevPageBtn.disabled = currentPage === 1;
@@ -66,23 +60,21 @@ function handleFormSubmit(e) {
       ...data,
       id: parseInt(data.id),
     });
-    if (!success) {
+    if (!success)
       document.getElementById("email-error").textContent =
         "Email already exists";
-    }
   } else {
     const added = employeeAPI.addEmployee(data);
-    if (!added) {
+    if (!added)
       document.getElementById("email-error").textContent =
         "Email already exists";
-    }
   }
 
   modal.classList.add("hidden");
   renderEmployees();
 }
 
-// Event listeners
+// Event Listeners
 addEmployeeBtn.addEventListener("click", () => openAddForm(employeeAPI));
 cancelBtn.addEventListener("click", () => modal.classList.add("hidden"));
 form.addEventListener("submit", handleFormSubmit);
@@ -106,6 +98,5 @@ resetFiltersBtn.addEventListener("click", () => {
 });
 
 // Initial load
-employeeAPI.initData();
 populateDropdowns(employeeAPI);
 renderEmployees();
