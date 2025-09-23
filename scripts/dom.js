@@ -1,5 +1,6 @@
-// dom.js
 export const tableBody = document.getElementById("employee-table-body");
+
+//Render employees table and attach action listeners
 
 export function renderTable(employees, openEditForm, deleteEmployee) {
   tableBody.innerHTML = employees
@@ -20,7 +21,7 @@ export function renderTable(employees, openEditForm, deleteEmployee) {
     )
     .join("");
 
-  // Add action listeners
+  // Attach event listeners to action buttons
   document
     .querySelectorAll(".btn-edit")
     .forEach((btn) =>
@@ -37,22 +38,33 @@ export function renderTable(employees, openEditForm, deleteEmployee) {
     );
 }
 
+//Update a single dropdown element
+
 export function updateDropdown(id, options, defaultText = "Select") {
   const select = document.getElementById(id);
   const currentValue = select.value;
+
   select.innerHTML = `<option value="">${defaultText}</option>`;
   options.forEach((option) => select.add(new Option(option, option)));
+
+  // Restore previous selection if still valid
   if (currentValue && options.includes(currentValue))
     select.value = currentValue;
 }
 
+/**
+ * Populate all dropdowns (form + filters) with data from employeeAPI
+ */
 export function populateDropdowns(employeeAPI) {
-  updateDropdown("department", employeeAPI.getDepartments());
-  updateDropdown("role", employeeAPI.getRoles());
-  updateDropdown(
-    "department-filter",
-    employeeAPI.getDepartments(),
-    "All Departments"
-  );
-  updateDropdown("role-filter", employeeAPI.getRoles(), "All Roles");
+  // Get all unique departments and roles from employees + master lists
+  const allDepts = employeeAPI.getDepartments();
+  const allRoles = employeeAPI.getRoles();
+
+  // Form dropdowns
+  updateDropdown("department", allDepts);
+  updateDropdown("role", allRoles);
+
+  // Filter dropdowns
+  updateDropdown("department-filter", allDepts, "All Departments");
+  updateDropdown("role-filter", allRoles, "All Roles");
 }
