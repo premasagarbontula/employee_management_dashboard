@@ -91,4 +91,4 @@ Custom departments and roles automatically appear in the filter dropdowns.
 ## License
 
 MIT License
-Contributors: Prema Sagar Bontula
+-- **Contributors: Prema Sagar Bontula**
