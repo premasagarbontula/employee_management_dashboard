@@ -2,7 +2,7 @@
 
 A simple **Employee Directory** web application built using **Vanilla JavaScript**, **HTML**, and **CSS**. The app supports CRUD operations, search, filters, sorting, and pagination.
 
----
+## -- **Live Demo: https://employee-management-dashboard-bice.vercel.app/**
 
 # Screenshots
 
@@ -69,9 +69,9 @@ cd employee_management_dashboard
 
 ## Technologies
 
-HTML5
-CSS3
-Vanilla JavaScript (ES6 modules)
+- **HTML5**
+- **CSS3**
+- **Vanilla JavaScript (ES6 modules)**
 
 ## Notes
 
@@ -83,10 +83,10 @@ Custom departments and roles automatically appear in the filter dropdowns.
 
 ## Future Enhancements
 
-Export to CSV functionality
-Dark mode toggle
-Photo upload support
-Department/Role management
+- **Export to CSV functionality**
+- **Dark mode toggle**
+- **Photo upload support**
+- **Department/Role management**
 
 ## License
 
