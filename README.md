@@ -1,6 +1,6 @@
 # Employee Directory Web App
 
-A simple **Employee Directory** web application built using **Vanilla JavaScript**, **HTML**, and **CSS**. The app supports CRUD operations, search, filters, sorting, and pagination. Employee data is stored in **localStorage**, so no backend is required.
+A simple **Employee Directory** web application built using **Vanilla JavaScript**, **HTML**, and **CSS**. The app supports CRUD operations, search, filters, sorting, and pagination.
 
 ---
 
@@ -24,7 +24,8 @@ A simple **Employee Directory** web application built using **Vanilla JavaScript
 
 ## Project Structure
 
-employee-directory/
+```
+employee_management_dashboard/
 ├── index.html
 ├── styles/
 │ ├── base.css
@@ -39,6 +40,7 @@ employee-directory/
 │ ├── form.js # Form handling and validation
 │ └── main.js # App initialization and event listeners
 └── README.md
+```
 
 ---
 
@@ -67,9 +69,9 @@ cd employee_management_dashboard
 
 ## Technologies
 
-** HTML5
-** CSS3
-\*\* Vanilla JavaScript (ES6 modules)
+HTML5
+CSS3
+Vanilla JavaScript (ES6 modules)
 
 ## Notes
 
@@ -78,6 +80,13 @@ The app uses a modular structure: different functionality is split across multip
 If localStorage is empty, the app will initialize with sample employees.
 
 Custom departments and roles automatically appear in the filter dropdowns.
+
+## Future Enhancements
+
+Export to CSV functionality
+Dark mode toggle
+Photo upload support
+Department/Role management
 
 ## License
 
