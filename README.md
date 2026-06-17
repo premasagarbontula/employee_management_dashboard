@@ -2,8 +2,8 @@
 
 A simple **Employee Directory** web application built using **Vanilla JavaScript**, **HTML**, and **CSS**. The app supports CRUD operations, search, filters, sorting, and pagination.
 
-* App Demo: https://employee-management-dashboard-bice.vercel.app/ *
-* Video Demo: https://drive.google.com/file/d/1_EMudiSENFpSKJU9r0yW4MlhB74izjzO/view?usp=drive_link *
+* App Demo: https://employee-management-dashboard-bice.vercel.app/ 
+* Video Demo: https://drive.google.com/file/d/1_EMudiSENFpSKJU9r0yW4MlhB74izjzO/view?usp=drive_link 
 
 # Screenshots
 
